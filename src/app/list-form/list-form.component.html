@@ -3,6 +3,7 @@
   <input
     [class.editing]="editing"
     title="name" type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name"
+    autocomplete="off"
     (focus)="editing=true;" (blur)="editing=false;"
   >
 </form>

@@ -18,5 +18,6 @@ export class ListFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.model);
+    this.model = new List('');
   }
 }
