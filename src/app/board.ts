@@ -8,4 +8,8 @@ export class Board {
     this.name  = name;
     this.lists = [];
   }
+
+  public addList(list: List) {
+    this.lists.push(list);
+  }
 }

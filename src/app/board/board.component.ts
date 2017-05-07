@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Board } from '../board';
+import { List } from '../list';
 
 @Component({
   selector: 'app-board',
@@ -12,6 +13,9 @@ export class BoardComponent implements OnInit {
 
   constructor() {
     this.board = new Board('FancyBoard');
+
+    let list = new List('TODO');
+    this.board.addList(list);
   }
 
   ngOnInit() {
