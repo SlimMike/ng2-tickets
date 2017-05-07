@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Board } from '../board';
 
 @Component({
   selector: 'app-board',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  constructor() { }
+  private board: Board;
+
+  constructor() {
+    this.board = new Board('FancyBoard');
+  }
 
   ngOnInit() {
   }
-
 }
