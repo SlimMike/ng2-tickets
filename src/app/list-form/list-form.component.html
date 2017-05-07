@@ -1,3 +1,8 @@
-<p>
-  list-form works!
-</p>
+<form (ngSubmit)="onSubmit()">
+  <label for="name" [class.editing]="editing">Add a list...</label>
+  <input
+    [class.editing]="editing"
+    title="name" type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name"
+    (focus)="editing=true;" (blur)="editing=false;"
+  >
+</form>
