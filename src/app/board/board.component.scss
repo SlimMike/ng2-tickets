@@ -1,0 +1,30 @@
+:host:before {
+  content: " ";
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background: url('./assets/warehouse.jpg') no-repeat;
+  background-size: cover;
+  z-index: -1;
+  filter: saturate(60%) contrast(80%);
+}
+
+h1 {
+  font-size: 32px;
+  color: #eaeaea;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.lists {
+  margin: 15px;
+}
+
+.list {
+  margin: 0 5px;
+  border-radius: 5px;
+  width: 300px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.4);
+  float: left;
+}

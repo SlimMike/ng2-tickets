@@ -1,5 +1,7 @@
 <h1>{{board.name}}</h1>
 
-<div class="list" *ngFor="let list of board.lists">
-  {{list.name}}
+<div class="lists">
+  <div class="list" *ngFor="let list of board.lists">
+    {{list.name}}
+  </div>
 </div>

@@ -14,8 +14,10 @@ export class BoardComponent implements OnInit {
   constructor() {
     this.board = new Board('FancyBoard');
 
-    let list = new List('TODO');
-    this.board.addList(list);
+    let list1 = new List('TODO');
+    let list2 = new List('In Progress');
+    this.board.addList(list1);
+    this.board.addList(list2);
   }
 
   ngOnInit() {
