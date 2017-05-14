@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { ListFormComponent } from './list-form/list-form.component';
 import { Bus } from './bus';
+import { CommandFactory } from './commands/command-factory';
 
 // @todo not sure if that's right way of making a provider
 @NgModule({
@@ -18,9 +19,10 @@ import { Bus } from './bus';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
-  providers: [Bus],
+  providers: [Bus, CommandFactory],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

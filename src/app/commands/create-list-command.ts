@@ -7,4 +7,8 @@ export class CreateListCommand extends Command {
     super();
     this.name = name;
   }
+
+  public getQuery(): string {
+    return 'list:create';
+  }
 }
