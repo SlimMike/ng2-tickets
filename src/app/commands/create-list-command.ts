@@ -1,6 +1,6 @@
 import { Command } from './command';
 
-export class CreateListCommand extends Command{
+export class CreateListCommand extends Command {
   public name: String;
 
   constructor(name: String) {
