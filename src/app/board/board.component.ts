@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Board } from '../board';
 import { List } from '../list';
+import { ListService } from '../list/list.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-board',
@@ -8,16 +10,24 @@ import { List } from '../list';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-
   private board: Board;
+  public lists: List[];
 
-  constructor() {
+  constructor(private listService: ListService) {
     this.board = new Board('FancyBoard');
+    this.lists = [];
 
-    let list1 = new List('TODO');
-    let list2 = new List('In Progress');
-    this.board.addList(list1);
-    this.board.addList(list2);
+    let subscription = listService.getStream().subscribe(
+      (value) => {
+        this.lists.push(value);
+      }
+      , (error) => {
+        console.log('error');
+      },
+      () => {
+        console.log('finished');
+      }
+    );
   }
 
   ngOnInit() {
