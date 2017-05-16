@@ -18,9 +18,9 @@ export class BoardComponent implements OnInit {
 
     console.log('listening...');
 
-    let subscription = listService.getStream().subscribe(
+    listService.getStream().subscribe(
       (value) => {
-        this.lists.push(value);
+        this.lists = value;
       }
     );
   }
