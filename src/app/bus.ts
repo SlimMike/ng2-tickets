@@ -1,16 +1,24 @@
 import { Command } from './commands/command';
 import { Injectable } from '@angular/core';
 import { CommandFactory } from './commands/command-factory';
+import { Subject } from 'rxjs/Subject';
+import { CreateListCommand } from './commands/create-list-command';
 
 // @todo temp
 @Injectable()
 export class Bus {
+  private stream: Subject<Command>;
+
   constructor(private commandFactory: CommandFactory) {
+    this.stream = new Subject();
+
+    console.log('throw');
+    this.stream.next(new CreateListCommand('heja'));
   }
 
   public handle(command: Command) {
-    console.log(command);
     this.persist(command);
+    this.emit(command);
   }
 
   private persist(command: Command) {
@@ -23,7 +31,16 @@ export class Bus {
     );
   }
 
-  private readList() {
+  private emit(command: Command): void {
+    this.stream.next(command);
+  }
+
+  // @todo only subscribe
+  public getSubscriber(): Subject<Command> {
+    return this.stream;
+  }
+
+  private readList(): Array<Command> {
     let list = localStorage.getItem('commands');
 
     if (!list) {
@@ -35,7 +52,7 @@ export class Bus {
     });
   }
 
-  private writeList(list: Array<Command>) {
+  private writeList(list: Array<Command>): void {
     let serializedList = list.map((command: Command) => {
       return this.commandSerialize(command);
     });
@@ -43,7 +60,7 @@ export class Bus {
     localStorage.setItem('commands', JSON.stringify(serializedList));
   }
 
-  private commandSerialize(command: Command) {
+  private commandSerialize(command: Command): Object {
     return {
       query: command.getQuery(),
       payload: command

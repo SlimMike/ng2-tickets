@@ -1,29 +1,30 @@
 import { Injectable } from '@angular/core';
 import { List } from '../list';
-import { Observable } from 'rxjs/Observable';
+import { Bus } from '../bus';
+import { Subject } from 'rxjs/Subject';
+import { Command } from '../commands/command';
+import { CreateListCommand } from '../commands/create-list-command';
 
 @Injectable()
 export class ListService {
-  private stream: Observable<List>;
+  private stream: Subject<List>;
 
-  constructor() {
-    console.log('ding');
+  constructor(private bus: Bus) {
+    console.log('construct');
 
-    this.stream = new Observable(observer => {
-      setTimeout(() => {
-        observer.next(new List('TODO'));
-      }, 1000);
+    this.stream = new Subject();
 
-      setTimeout(() => {
-        observer.next(new List('In Progress'));
-      }, 2000);
+    bus.getSubscriber().subscribe((command: Command) => {
+      console.log('in service');
+      console.log(command);
 
-      setTimeout(() => {
-        observer.complete();
-      }, 3000);
+      if (command instanceof CreateListCommand) {
+        this.stream.next(new List(command.name));
+      }
     });
   }
 
+  // @todo only subscribe
   getStream() {
     return this.stream;
   }
