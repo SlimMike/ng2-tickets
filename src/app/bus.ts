@@ -31,7 +31,7 @@ export class Bus {
     }
 
     return JSON.parse(list).map((serialized) => {
-      return this.commandFactory.fromString(serialized.query, serialized.payload)
+      return this.commandFactory.fromString(serialized.query, serialized.payload);
     });
   }
 
