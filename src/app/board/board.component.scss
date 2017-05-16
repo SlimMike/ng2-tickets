@@ -17,15 +17,19 @@ h1 {
 }
 
 .lists {
-  margin: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
   white-space: nowrap;
   overflow-x: scroll;
+  position: absolute;
+  min-height: calc(100% - 30px - 52px);
 }
 
 .list {
   margin: 0 5px;
   border-radius: 5px;
-  width: 300px;
+  width: 200px;
   padding: 10px;
   display: inline-block;
   background: rgba(255, 255, 255, 0.8);
