@@ -1,3 +1,7 @@
+:host {
+  position: relative;
+}
+
 form {
   margin: 0 5px;
   border-radius: 5px;
@@ -7,6 +11,7 @@ form {
   color: #bdbdbd;
   background: rgba(0, 0, 0, 0.4);
   height: 16px;
+  position: absolute;
 }
 
 label {
