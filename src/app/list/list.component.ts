@@ -40,4 +40,7 @@ export class ListComponent implements OnInit {
     this.model.name = this.list.name.toString();
     this.blur();
   }
+
+  archive() {
+  }
 }

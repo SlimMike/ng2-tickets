@@ -8,11 +8,12 @@
 
 form {
   border-radius: 5px;
-  width: 200px;
+  width: 180px;
   display: inline-block;
   height: 36px;
   position: absolute;
   background: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
 
   label, input {
     color: #525252;
@@ -45,4 +46,14 @@ input {
   border: none;
   background-color: transparent;
   padding: 10px;
+}
+
+button {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  width: 15px;
+  height: 15px;
+  background: #e42800;
+  border: 0;
 }
