@@ -4,6 +4,7 @@ import { Bus } from '../bus';
 import { Command } from '../commands/command';
 import { CreateListCommand } from '../commands/create-list-command';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { EditListName } from '../commands/edit-list-name';
 
 @Injectable()
 export class ListService {
@@ -27,6 +28,16 @@ export class ListService {
   onNewCommand(command: Command) {
     if (command instanceof CreateListCommand) {
       this.lists.push(new List(command.localId, command.name));
+      this.stream.next(this.lists);
+
+      return;
+    }
+
+    if (command instanceof EditListName) {
+      this.lists.find((element) => {
+        return element.localId === command.localId;
+      }).name = command.name;
+
       this.stream.next(this.lists);
 
       return;
