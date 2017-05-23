@@ -10,12 +10,12 @@ export class ListComponent implements OnInit {
 
   @Input()
   public list: List;
-  public model   = new List('');
+  public model   = {name: ''};
   public editing = false;
   public id      = Math.floor(Math.random() * 1000000);
 
   ngOnInit() {
-    this.model.name = this.list.name;
+    this.model.name = this.list.name.toString();
   }
 
   focus() {
@@ -27,9 +27,13 @@ export class ListComponent implements OnInit {
   }
 
   onSubmit() {
-    // @todo should i use `List` model here?
+    if (!this.editing) {
+      return;
+    }
+
     // this.bus.handle(new CreateListCommand(this.model.name));
 
-    // this.model = new List('');
+    this.model.name = this.list.name.toString();
+    this.blur();
   }
 }

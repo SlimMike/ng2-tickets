@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { List } from '../list';
 import { Bus } from '../bus';
 import { CreateListCommand } from '../commands/create-list-command';
 
@@ -9,21 +8,18 @@ import { CreateListCommand } from '../commands/create-list-command';
   styleUrls: ['./list-form.component.scss']
 })
 export class ListFormComponent implements OnInit {
-  public model   = new List('');
+  public model   = {name: ''};
   public editing = false;
-  private bus: Bus;
 
-  constructor(bus: Bus) {
-    this.bus = bus;
+  constructor(private bus: Bus) {
   }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    // @todo should i use `List` model here?
     this.bus.handle(new CreateListCommand(this.model.name));
 
-    this.model = new List('');
+    this.model = {name: ''};
   }
 }
