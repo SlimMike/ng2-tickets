@@ -28,9 +28,11 @@ export class ListService {
     if (command instanceof CreateListCommand) {
       this.lists.push(new List(command.localId, command.name));
       this.stream.next(this.lists);
-    } else {
-      console.log(command);
+
+      return;
     }
+
+    console.log(command);
   }
 
   // @todo only subscribe
