@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { List } from '../list';
 import { Bus } from '../bus';
 import { EditListName } from '../commands/edit-list-name';
+import { ArchiveList } from '../commands/archive-list';
 
 @Component({
   selector: 'app-list',
@@ -42,5 +43,6 @@ export class ListComponent implements OnInit {
   }
 
   archive() {
+    this.bus.handle(new ArchiveList(this.list.localId));
   }
 }
