@@ -16,8 +16,6 @@ export class BoardComponent implements OnInit {
     this.board = new Board('FancyBoard');
     this.lists = [];
 
-    console.log('listening...');
-
     listService.getStream().subscribe(
       (value) => {
         this.lists = value;

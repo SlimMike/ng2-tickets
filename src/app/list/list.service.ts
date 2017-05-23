@@ -12,7 +12,6 @@ export class ListService {
   private lists: Array<List>;
 
   constructor(private bus: Bus) {
-    console.log('construct');
     this.lists  = [];
     this.stream = new BehaviorSubject<Array<List>>([]);
 
