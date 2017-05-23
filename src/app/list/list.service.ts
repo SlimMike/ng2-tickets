@@ -27,7 +27,7 @@ export class ListService {
 
   onNewCommand(command: Command) {
     if (command instanceof CreateListCommand) {
-      this.lists.push(new List(command.name));
+      this.lists.push(new List(command.localId, command.name));
       this.stream.next(this.lists);
     } else {
       console.log(command);

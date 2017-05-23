@@ -18,7 +18,7 @@ export class ListFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.bus.handle(new CreateListCommand(this.model.name));
+    this.bus.handle(new CreateListCommand(CreateListCommand.generateId(), this.model.name));
 
     this.model = {name: ''};
   }

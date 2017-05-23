@@ -12,7 +12,6 @@ export class ListComponent implements OnInit {
   public list: List;
   public model   = {name: ''};
   public editing = false;
-  public id      = Math.floor(Math.random() * 1000000);
 
   ngOnInit() {
     this.model.name = this.list.name.toString();

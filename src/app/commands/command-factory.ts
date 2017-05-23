@@ -4,7 +4,7 @@ import { CreateListCommand } from './create-list-command';
 export class CommandFactory {
   public fromString(name: string, args) {
     if ('list:create' === name) {
-      return new CreateListCommand(args.name);
+      return new CreateListCommand(args.localId, args.name);
     }
 
     throw new Error('fail');
