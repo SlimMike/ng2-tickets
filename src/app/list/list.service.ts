@@ -44,7 +44,7 @@ export class ListService {
       return;
     }
 
-
+    // @todo set flag instead of removing?
     if (command instanceof ArchiveList) {
       let index = this.lists.findIndex(function(element) {
         return element.localId === command.localId;
