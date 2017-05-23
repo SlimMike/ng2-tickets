@@ -5,6 +5,7 @@ import { Command } from '../commands/command';
 import { CreateListCommand } from '../commands/create-list-command';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { EditListName } from '../commands/edit-list-name';
+import { ArchiveList } from '../commands/archive-list';
 
 @Injectable()
 export class ListService {
@@ -34,7 +35,7 @@ export class ListService {
     }
 
     if (command instanceof EditListName) {
-      this.lists.find((element) => {
+      this.lists.find(function(element) {
         return element.localId === command.localId;
       }).name = command.name;
 
@@ -43,8 +44,23 @@ export class ListService {
       return;
     }
 
+
+    if (command instanceof ArchiveList) {
+      let index = this.lists.findIndex(function(element) {
+        return element.localId === command.localId;
+      });
+
+      this.lists.splice(index, 1);
+
+      this.stream.next(this.lists);
+
+      return;
+    }
+
     console.log(command);
   }
+
+
 
   // @todo only subscribe
   getStream() {
