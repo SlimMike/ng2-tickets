@@ -1,12 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 // @todo extend
 @Component({
-  selector: 'app-single-field',
   templateUrl: './single-field.component.html',
   styleUrls: ['./single-field.component.css']
 })
-export class SingleFieldComponent implements OnInit {
+export abstract class SingleFieldComponent implements OnInit, OnChanges {
 
   @Input()
   public field: string;
@@ -23,12 +22,21 @@ export class SingleFieldComponent implements OnInit {
   constructor() {
     this.randomId = this.generateRandomId();
     this.id       = '';
-    this.current  = '';
   }
 
   ngOnInit() {
     this.id = 'list' + this.field + this.randomId;
+    this.resetCurrent();
   }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.initial) {
+      this.initial = changes.initial.currentValue;
+      this.resetCurrent();
+    }
+  }
+
+  abstract resetCurrent();
 
   focus() {
     this.editing = true;
@@ -45,7 +53,7 @@ export class SingleFieldComponent implements OnInit {
 
     this.result.emit(this.current);
 
-    this.current = '';
+    this.resetCurrent();
     this.blur();
   }
 

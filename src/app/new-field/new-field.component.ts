@@ -8,5 +8,7 @@ import { SingleFieldComponent } from '../single-field/single-field.component';
   styleUrls: ['./new-field.component.scss']
 })
 export class NewFieldComponent extends SingleFieldComponent {
-
+  resetCurrent() {
+    this.current = '';
+  }
 }

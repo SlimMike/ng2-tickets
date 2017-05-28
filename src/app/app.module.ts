@@ -22,8 +22,7 @@ import { SingleFieldComponent } from './single-field/single-field.component';
     ListFormComponent,
     ListComponent,
     EditableFieldComponent,
-    NewFieldComponent,
-    SingleFieldComponent
+    NewFieldComponent
   ],
   imports: [
     NgbModule.forRoot(),
