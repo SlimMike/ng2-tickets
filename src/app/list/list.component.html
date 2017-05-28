@@ -4,6 +4,7 @@
     <button class="archive" (click)="archive()"></button>
   </div>
   <div class="bottom">
-    <a href="#" class="add-ticket" (click)="addTicket()">Add a ticket</a>
+    <app-new-field [localId]="list.localId" [field]="'add-ticket'" [initial]="'Add a ticket'" (change)="addTicket($event)"></app-new-field>
+    <!--<a href="#" class="add-ticket" (click)="addTicket()">Add a ticket</a>-->
   </div>
 </div>
