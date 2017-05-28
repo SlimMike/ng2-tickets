@@ -12,6 +12,7 @@ import { ListService } from './list/list.service';
 import { ListComponent } from './list/list.component';
 import { EditableFieldComponent } from './editable-field/editable-field.component';
 import { NewFieldComponent } from './new-field/new-field.component';
+import { SingleFieldComponent } from './single-field/single-field.component';
 
 // @todo not sure if that's right way of making a provider
 @NgModule({
@@ -21,7 +22,8 @@ import { NewFieldComponent } from './new-field/new-field.component';
     ListFormComponent,
     ListComponent,
     EditableFieldComponent,
-    NewFieldComponent
+    NewFieldComponent,
+    SingleFieldComponent
   ],
   imports: [
     NgbModule.forRoot(),
