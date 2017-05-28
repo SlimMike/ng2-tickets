@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+// @todo extend
 @Component({
   selector: 'app-new-field',
   templateUrl: './new-field.component.html',
@@ -8,26 +9,26 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class NewFieldComponent implements OnInit {
 
   @Input()
-  public localId: string;
-  @Input()
   public field: string;
   @Input()
   public initial: string;
   public current: string;
+  public randomId: string;
   public editing = false;
   public id: string;
 
   @Output()
-  public change: EventEmitter<string> = new EventEmitter<string>();
+  public result: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
-    this.id = '';
-    this.current = '';
+    this.randomId = this.generateRandomId();
+    this.id       = '';
+    this.current  = '';
   }
 
   ngOnInit() {
     this.current = this.initial;
-    this.id = 'list' + this.field + this.localId;
+    this.id      = 'list' + this.field + this.randomId;
   }
 
   focus() {
@@ -43,9 +44,17 @@ export class NewFieldComponent implements OnInit {
       return;
     }
 
-    this.change.emit(this.current);
+    this.result.emit(this.current);
 
     this.current = this.initial;
     this.blur();
+  }
+
+  // @todo extract
+  generateRandomId(): string {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
   }
 }
