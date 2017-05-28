@@ -1,4 +1,4 @@
-<div class="list">
+<div class="list" *ngIf="!list.isArchived">
   <form (ngSubmit)="onSubmit()" [class.editing]="editing">
     <label for="{{list.localId}}">{{list.name}}</label>
     <input

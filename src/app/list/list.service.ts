@@ -26,7 +26,7 @@ export class ListService {
     });
   }
 
-  onNewCommand(command: Command) {
+  onNewCommand(command: Command): void {
     if (command instanceof CreateListCommand) {
       this.lists.push(new List(command.localId, command.name));
       this.stream.next(this.lists);
@@ -35,22 +35,19 @@ export class ListService {
     }
 
     if (command instanceof EditListName) {
-      this.lists.find(function(element) {
-        return element.localId === command.localId;
-      }).name = command.name;
+      const element = this.findById(command.localId);
+
+      element.name = command.name;
 
       this.stream.next(this.lists);
 
       return;
     }
 
-    // @todo set flag instead of removing?
     if (command instanceof ArchiveList) {
-      let index = this.lists.findIndex(function(element) {
-        return element.localId === command.localId;
-      });
+      const element = this.findById(command.localId);
 
-      this.lists.splice(index, 1);
+      element.isArchived = true;
 
       this.stream.next(this.lists);
 
@@ -60,7 +57,11 @@ export class ListService {
     console.log(command);
   }
 
-
+  private findById(localId: String): List | undefined {
+    return this.lists.find(function(element) {
+      return element.localId === localId;
+    });
+  }
 
   // @todo only subscribe
   getStream() {
