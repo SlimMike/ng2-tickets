@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { SingleFieldComponent } from '../single-field/single-field.component';
 
-// @todo extend
 @Component({
   selector: 'app-new-field',
   templateUrl: '../single-field/single-field.component.html',

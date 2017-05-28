@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
-// @todo extend
 @Component({
   templateUrl: './single-field.component.html',
   styleUrls: ['./single-field.component.css']
