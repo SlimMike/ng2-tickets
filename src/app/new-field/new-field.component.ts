@@ -27,8 +27,7 @@ export class NewFieldComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.current = this.initial;
-    this.id      = 'list' + this.field + this.randomId;
+    this.id = 'list' + this.field + this.randomId;
   }
 
   focus() {
@@ -46,7 +45,7 @@ export class NewFieldComponent implements OnInit {
 
     this.result.emit(this.current);
 
-    this.current = this.initial;
+    this.current = '';
     this.blur();
   }
 
