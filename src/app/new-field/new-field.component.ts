@@ -4,7 +4,7 @@ import { SingleFieldComponent } from '../single-field/single-field.component';
 // @todo extend
 @Component({
   selector: 'app-new-field',
-  templateUrl: './new-field.component.html',
+  templateUrl: '../single-field/single-field.component.html',
   styleUrls: ['./new-field.component.scss']
 })
 export class NewFieldComponent extends SingleFieldComponent {

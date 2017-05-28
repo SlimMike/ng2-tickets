@@ -1,8 +1,0 @@
-<form (ngSubmit)="onSubmit()" [class.editing]="editing">
-  <label for="{{id}}">{{initial}}</label>
-  <input
-    title="name" type="text" class="form-control" id="{{id}}" required [(ngModel)]="current" name="{{id}}"
-    autocomplete="off"
-    (focus)="focus()" (blur)="blur()"
-  >
-</form>

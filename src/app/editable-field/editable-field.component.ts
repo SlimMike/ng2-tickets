@@ -3,7 +3,7 @@ import { SingleFieldComponent } from '../single-field/single-field.component';
 
 @Component({
   selector: 'app-editable-field',
-  templateUrl: './editable-field.component.html',
+  templateUrl: '../single-field/single-field.component.html',
   styleUrls: ['./editable-field.component.scss']
 })
 export class EditableFieldComponent extends SingleFieldComponent implements OnInit {
