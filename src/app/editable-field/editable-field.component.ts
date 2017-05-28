@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-editable-field',
@@ -16,6 +16,9 @@ export class EditableFieldComponent implements OnInit {
   public current: string;
   public editing = false;
   public id: string;
+
+  @Output()
+  public change: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
     this.id = '';
@@ -40,7 +43,7 @@ export class EditableFieldComponent implements OnInit {
       return;
     }
 
-    console.log('siema');
+    this.change.emit(this.current);
 
     this.current = this.initial;
     this.blur();
