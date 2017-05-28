@@ -45,4 +45,8 @@ export class ListComponent implements OnInit {
   archive() {
     this.bus.handle(new ArchiveList(this.list.localId));
   }
+
+  addTicket() {
+    console.log('add ticket');
+  }
 }
