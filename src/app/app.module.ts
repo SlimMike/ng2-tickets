@@ -13,6 +13,7 @@ import { ListComponent } from './list/list.component';
 import { EditableFieldComponent } from './editable-field/editable-field.component';
 import { NewFieldComponent } from './new-field/new-field.component';
 import { SingleFieldComponent } from './single-field/single-field.component';
+import { RandomIdGenerator } from './random-id-generator';
 
 // @todo not sure if that's right way of making a provider
 @NgModule({
@@ -30,7 +31,7 @@ import { SingleFieldComponent } from './single-field/single-field.component';
     FormsModule,
     HttpModule,
   ],
-  providers: [Bus, CommandFactory, ListService],
+  providers: [Bus, CommandFactory, ListService, RandomIdGenerator],
   bootstrap: [AppComponent]
 })
 export class AppModule {
