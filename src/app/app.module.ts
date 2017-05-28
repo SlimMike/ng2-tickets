@@ -10,6 +10,7 @@ import { Bus } from './bus';
 import { CommandFactory } from './commands/command-factory';
 import { ListService } from './list/list.service';
 import { ListComponent } from './list/list.component';
+import { EditableFieldComponent } from './editable-field/editable-field.component';
 
 // @todo not sure if that's right way of making a provider
 @NgModule({
@@ -17,7 +18,8 @@ import { ListComponent } from './list/list.component';
     AppComponent,
     BoardComponent,
     ListFormComponent,
-    ListComponent
+    ListComponent,
+    EditableFieldComponent
   ],
   imports: [
     NgbModule.forRoot(),
