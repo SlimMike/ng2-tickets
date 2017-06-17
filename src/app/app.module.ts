@@ -14,6 +14,7 @@ import { EditableFieldComponent } from './editable-field/editable-field.componen
 import { NewFieldComponent } from './new-field/new-field.component';
 import { SingleFieldComponent } from './single-field/single-field.component';
 import { RandomIdGenerator } from './random-id-generator';
+import { FieldWithPlaceholderComponent } from './field-with-placeholder/field-with-placeholder.component';
 
 // @todo not sure if that's right way of making a provider
 @NgModule({
@@ -23,7 +24,8 @@ import { RandomIdGenerator } from './random-id-generator';
     ListFormComponent,
     ListComponent,
     EditableFieldComponent,
-    NewFieldComponent
+    NewFieldComponent,
+    FieldWithPlaceholderComponent
   ],
   imports: [
     NgbModule.forRoot(),
