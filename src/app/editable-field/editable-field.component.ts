@@ -4,7 +4,7 @@ import { SingleFieldComponent } from '../single-field/single-field.component';
 @Component({
   selector: 'app-editable-field',
   templateUrl: '../single-field/single-field.component.html',
-  styleUrls: ['./editable-field.component.scss']
+  styleUrls: ['../single-field/single-field.component.scss', './editable-field.component.scss']
 })
 export class EditableFieldComponent extends SingleFieldComponent implements OnInit {
   resetCurrent() {

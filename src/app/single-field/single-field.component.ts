@@ -3,7 +3,7 @@ import { RandomIdGenerator } from '../random-id-generator';
 
 @Component({
   templateUrl: './single-field.component.html',
-  styleUrls: ['./single-field.component.css']
+  styleUrls: ['./single-field.component.scss']
 })
 export abstract class SingleFieldComponent implements OnInit, OnChanges {
 
