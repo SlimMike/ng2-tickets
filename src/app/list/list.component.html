@@ -4,6 +4,7 @@
       [placeholder]="list.name"
       [initial]="list.name"
       (notify)="onEditListName($event)"
+      [blurAfterNotify]="true"
     ></app-field-with-placeholder>
     <button class="archive" (click)="archive()"></button>
   </div>

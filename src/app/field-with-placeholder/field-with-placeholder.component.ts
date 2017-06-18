@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-field-with-placeholder',
@@ -15,7 +15,11 @@ export class FieldWithPlaceholderComponent implements OnInit {
   public current: string;
   @Input()
   public clearAfterNotify: boolean;
+  @Input()
+  public blurAfterNotify: boolean;
   public editing: boolean;
+  // @todo type
+  private inputRef: any;
 
   @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 
@@ -29,7 +33,11 @@ export class FieldWithPlaceholderComponent implements OnInit {
     this.current    = value;
   }
 
+  constructor(private elementRef: ElementRef) {
+  }
+
   ngOnInit() {
+    this.inputRef = this.elementRef.nativeElement.children[0].children[0];
     this.editing = false;
     this.current = this.initial;
     this.blur();
@@ -50,6 +58,12 @@ export class FieldWithPlaceholderComponent implements OnInit {
     // @todo force filling this attribute?
     if (this.clearAfterNotify) {
       this.displayed = '';
+    } else {
+      this.placeholder = this.current;
+    }
+    // @todo blur without ViewChild?
+    if (this.blurAfterNotify) {
+      this.inputRef.blur();
     }
   }
 }
