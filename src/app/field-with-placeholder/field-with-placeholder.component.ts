@@ -13,6 +13,8 @@ export class FieldWithPlaceholderComponent implements OnInit {
   public initial: string;
   @Input()
   public current: string;
+  @Input()
+  public clearAfterNotify: boolean;
   public editing: boolean;
 
   @Output() notify: EventEmitter<string> = new EventEmitter<string>();
@@ -45,7 +47,9 @@ export class FieldWithPlaceholderComponent implements OnInit {
 
   onSubmit() {
     this.notify.emit(this.current);
-    // @todo might need change
-    this.displayed = '';
+    // @todo force filling this attribute?
+    if (this.clearAfterNotify) {
+      this.displayed = '';
+    }
   }
 }
