@@ -1,9 +1,7 @@
 <form (ngSubmit)="onSubmit()">
-  <label for="name" [class.editing]="editing">Add a list...</label>
-  <input
-    [class.editing]="editing"
-    title="name" type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name"
-    autocomplete="off"
-    (focus)="editing=true;" (blur)="editing=false;"
-  >
+  <app-field-with-placeholder
+    [placeholder]="'Add a list...'"
+    [initial]="''"
+    (notify)="onListNameChange($event)"
+  ></app-field-with-placeholder>
 </form>

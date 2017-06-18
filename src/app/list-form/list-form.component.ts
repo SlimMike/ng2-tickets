@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Bus } from '../bus';
 import { CreateListCommand } from '../commands/create-list-command';
 
@@ -7,19 +7,19 @@ import { CreateListCommand } from '../commands/create-list-command';
   templateUrl: './list-form.component.html',
   styleUrls: ['./list-form.component.scss']
 })
-export class ListFormComponent implements OnInit {
-  public model   = {name: ''};
-  public editing = false;
+export class ListFormComponent {
+  public name = '';
 
   constructor(private bus: Bus) {
   }
 
-  ngOnInit() {
+  onListNameChange(name: string) {
+    this.name = name;
   }
 
   onSubmit() {
-    this.bus.handle(new CreateListCommand(CreateListCommand.generateId(), this.model.name));
+    this.bus.handle(new CreateListCommand(CreateListCommand.generateId(), this.name));
 
-    this.model = {name: ''};
+    this.name = '';
   }
 }

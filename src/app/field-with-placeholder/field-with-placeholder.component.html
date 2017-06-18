@@ -1,3 +1,6 @@
-<p>
-  field-with-placeholder works!
-</p>
+<input
+  title="field"
+  type="text" class="form-control" required [(ngModel)]="displayed"
+  autocomplete="off"
+  (focus)="focus()" (blur)="blur()"
+>
