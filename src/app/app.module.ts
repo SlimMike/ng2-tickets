@@ -10,7 +10,6 @@ import { Bus } from './bus';
 import { CommandFactory } from './commands/command-factory';
 import { ListService } from './list/list.service';
 import { ListComponent } from './list/list.component';
-import { EditableFieldComponent } from './editable-field/editable-field.component';
 import { RandomIdGenerator } from './random-id-generator';
 import { FieldWithPlaceholderComponent } from './field-with-placeholder/field-with-placeholder.component';
 
@@ -21,7 +20,6 @@ import { FieldWithPlaceholderComponent } from './field-with-placeholder/field-wi
     BoardComponent,
     ListFormComponent,
     ListComponent,
-    EditableFieldComponent,
     FieldWithPlaceholderComponent
   ],
   imports: [

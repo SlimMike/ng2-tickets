@@ -1,6 +1,10 @@
 <div class="list" *ngIf="!list.isArchived">
   <div class="top">
-    <app-editable-field [field]="'name'" [initial]="list.name" (result)="onEditListName($event)"></app-editable-field>
+    <app-field-with-placeholder
+      [placeholder]="list.name"
+      [initial]="list.name"
+      (notify)="onEditListName($event)"
+    ></app-field-with-placeholder>
     <button class="archive" (click)="archive()"></button>
   </div>
   <div class="bottom">
