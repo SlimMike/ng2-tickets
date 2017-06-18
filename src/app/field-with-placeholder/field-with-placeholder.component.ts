@@ -25,7 +25,6 @@ export class FieldWithPlaceholderComponent implements OnInit {
   public set displayed(value: string) {
     this._displayed = value;
     this.current    = value;
-    this.notify.emit(value);
   }
 
   ngOnInit() {
@@ -42,5 +41,11 @@ export class FieldWithPlaceholderComponent implements OnInit {
   blur() {
     this.editing    = false;
     this._displayed = this.placeholder;
+  }
+
+  onSubmit() {
+    this.notify.emit(this.current);
+    // @todo might need change
+    this.displayed = '';
   }
 }

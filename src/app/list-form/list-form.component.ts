@@ -8,18 +8,11 @@ import { CreateListCommand } from '../commands/create-list-command';
   styleUrls: ['./list-form.component.scss']
 })
 export class ListFormComponent {
-  public name = '';
 
   constructor(private bus: Bus) {
   }
 
-  onListNameChange(name: string) {
-    this.name = name;
-  }
-
-  onSubmit() {
-    this.bus.handle(new CreateListCommand(CreateListCommand.generateId(), this.name));
-
-    this.name = '';
+  onSubmit(name: string) {
+    this.bus.handle(new CreateListCommand(CreateListCommand.generateId(), name));
   }
 }

@@ -1,7 +1,5 @@
-<form (ngSubmit)="onSubmit()">
-  <app-field-with-placeholder
-    [placeholder]="'Add a list...'"
-    [initial]="''"
-    (notify)="onListNameChange($event)"
-  ></app-field-with-placeholder>
-</form>
+<app-field-with-placeholder
+  [placeholder]="'Add a list...'"
+  [initial]="''"
+  (notify)="onSubmit($event)"
+></app-field-with-placeholder>

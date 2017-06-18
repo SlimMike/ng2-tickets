@@ -1,6 +1,9 @@
-<input
-  title="field"
-  type="text" class="form-control" required [(ngModel)]="displayed"
-  autocomplete="off"
-  (focus)="focus()" (blur)="blur()"
->
+<form (ngSubmit)="onSubmit()">
+  <input
+    name="field"
+    title="field"
+    type="text" class="form-control" required [(ngModel)]="displayed"
+    autocomplete="off"
+    (focus)="focus()" (blur)="blur()"
+  >
+</form>
