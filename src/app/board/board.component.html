@@ -1,6 +1,6 @@
 <h1>{{board.name}}</h1>
 
 <div class="lists">
-  <app-list *ngFor="let list of lists | unarchivedList" [list]="list"></app-list>
+  <app-list *ngFor="let list of unarchivedLists" [list]="list"></app-list>
   <app-list-form></app-list-form>
 </div>

@@ -12,7 +12,6 @@ import { ListService } from './list/list.service';
 import { ListComponent } from './list/list.component';
 import { RandomIdGenerator } from './random-id-generator';
 import { FieldWithPlaceholderComponent } from './field-with-placeholder/field-with-placeholder.component';
-import { UnarchivedListPipe } from './unarchived-list.pipe';
 
 // @todo not sure if that's right way of making a provider
 @NgModule({
@@ -21,8 +20,7 @@ import { UnarchivedListPipe } from './unarchived-list.pipe';
     BoardComponent,
     ListFormComponent,
     ListComponent,
-    FieldWithPlaceholderComponent,
-    UnarchivedListPipe
+    FieldWithPlaceholderComponent
   ],
   imports: [
     NgbModule.forRoot(),
