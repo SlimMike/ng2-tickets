@@ -24,4 +24,7 @@ h1 {
   overflow-x: scroll;
   position: absolute;
   min-height: calc(100% - 30px - 52px);
+  --list-width: 200px;
+  display: flex;
+  align-items: flex-start;
 }
