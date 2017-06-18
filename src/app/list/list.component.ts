@@ -28,7 +28,7 @@ export class ListComponent implements OnInit {
     this.bus.handle(new ArchiveList(this.list.localId));
   }
 
-  addTicket() {
-    console.log('add ticket');
+  addTicket(name: string) {
+    console.log('add ticket: ' + name);
   }
 }
