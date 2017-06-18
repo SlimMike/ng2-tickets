@@ -4,6 +4,10 @@
     <button class="archive" (click)="archive()"></button>
   </div>
   <div class="bottom">
-    <app-new-field [field]="'add-ticket'" [initial]="'Add a ticket'" (result)="addTicket($event)"></app-new-field>
+    <app-field-with-placeholder
+      [placeholder]="'Add a ticket'"
+      [initial]="''"
+      (notify)="addTicket($event)"
+    ></app-field-with-placeholder>
   </div>
 </div>
