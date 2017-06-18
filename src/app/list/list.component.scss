@@ -1,6 +1,24 @@
 :host {
   background: rgba(255, 255, 255, 0.3);
   margin-left: 10px;
-  padding: 0 5px;
+  padding: 10px;
   width: var(--list-width);
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+
+.top {
+  --input-width: 160px;
+
+  button {
+    margin-left: 25px;
+  }
+
+  * {
+    display: inline-block;
+  }
+}
+
+.bottom {
+  margin-top: 15px;
 }
